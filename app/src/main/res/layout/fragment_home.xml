@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.home.HomeFragment">
+
+        <!-- Complaint Management Section -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/complaint_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:elevation="@dimen/_10sdp"
+            app:cardBackgroundColor="@color/md_theme_surface"
+            app:cardCornerRadius="@dimen/_8sdp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Row of Cards -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <!-- Add New Complaint Card -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="4dp">
+
+                        <LinearLayout
+                            android:id="@+id/add_compalint_ll"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_12sdp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="@dimen/_48sdp"
+                                android:layout_height="@dimen/_48sdp"
+                                android:contentDescription="New Complaint"
+                                android:padding="8dp"
+                                android:src="@drawable/new_complaint" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="New Complaint"
+                                android:textColor="@color/md_theme_onSurface"
+                                android:textSize="@dimen/_14ssp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- My Complaints Card -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="4dp">
+
+                        <LinearLayout
+                            android:id="@+id/my_complaints_ll"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_12sdp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="@dimen/_48sdp"
+                                android:layout_height="@dimen/_48sdp"
+                                android:contentDescription="My Complaints"
+                                android:padding="8dp"
+                                android:src="@drawable/my_complaint" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="My Complaints"
+                                android:textColor="@color/md_theme_onSurface"
+                                android:textSize="@dimen/_14ssp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Join Us Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/join_member"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_20sdp"
+            android:backgroundTint="@color/md_theme_primary"
+            android:text="Join Us"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+            android:textColor="@color/md_theme_onPrimary"
+            app:layout_constraintTop_toBottomOf="@id/complaint_card" />
+
+        <!-- Emergency Numbers Section -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/emergency_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            app:cardBackgroundColor="@color/md_theme_surfaceContainer"
+            app:cardCornerRadius="@dimen/_8sdp"
+            app:cardElevation="@dimen/_6sdp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@id/join_member">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_12sdp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Emergency Numbers"
+                    android:textColor="@color/md_theme_onSurface"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:gravity="center_vertical"
+                    app:drawableStartCompat="@drawable/ic_emergency"
+                    app:drawableTint="@color/md_theme_onSurface" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/police_ll"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_8sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_32sdp"
+                            android:layout_height="@dimen/_32sdp"
+                            android:contentDescription="Police"
+                            android:src="@drawable/ic_police"
+                            app:tint="@color/md_theme_onSurface"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:text="Police\n100"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:textColor="@color/md_theme_onSurface"
+                            android:textSize="@dimen/_12ssp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/emergency_ll"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_8sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_32sdp"
+                            android:layout_height="@dimen/_32sdp"
+                            android:contentDescription="Fire"
+                            android:src="@drawable/ic_emergency"
+                            app:tint="@color/md_theme_onSurface" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:text="Emergency\n112"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:textColor="@color/md_theme_onSurface"
+                            android:textSize="@dimen/_12ssp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ambulance_ll"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_8sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_32sdp"
+                            android:layout_height="@dimen/_32sdp"
+                            android:contentDescription="Ambulance"
+                            android:src="@drawable/ic_ambulance"
+                            app:tint="@color/md_theme_onSurface" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:text="Ambulance\n108"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:textColor="@color/md_theme_onSurface"
+                            android:textSize="@dimen/_12ssp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Support Section -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/support_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            app:cardBackgroundColor="@color/md_theme_surface"
+            app:cardCornerRadius="@dimen/_8sdp"
+            app:cardElevation="@dimen/_6sdp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@id/emergency_card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_12sdp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Support Center"
+                    android:textColor="@color/md_theme_onSurface"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:gravity="center_vertical"
+                    app:drawableStartCompat="@drawable/ic_support"
+                    app:drawableTint="@color/md_theme_onSurface" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:orientation="horizontal">
+
+                   <!-- <LinearLayout
+                        android:id="@+id/help_center_ll"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_8sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:contentDescription="Help Center"
+                            android:src="@drawable/ic_help" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:text="Help Center"
+                            android:textAlignment="center"
+                            android:textColor="@color/md_theme_onSurface"
+                            android:textSize="@dimen/_12ssp" />
+                    </LinearLayout>
+-->
+                    <LinearLayout
+                        android:id="@+id/contact_us_ll"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_8sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:contentDescription="Contact Us"
+                            android:src="@drawable/ic_contact"
+                            app:tint="@color/md_theme_onSurface" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:text="Contact Us"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:textColor="@color/md_theme_onSurface"
+                            android:textSize="@dimen/_12ssp" />
+                    </LinearLayout>
+
+                    <!--<LinearLayout
+                        android:id="@+id/faq_ll"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_8sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:contentDescription="FAQ"
+                            android:src="@drawable/ic_faq" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:text="FAQ"
+                            android:textAlignment="center"
+                            android:textColor="@color/md_theme_onSurface"
+                            android:textSize="@dimen/_12ssp" />
+                    </LinearLayout>-->
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Image Gallery Section
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/image_gallery_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            app:cardBackgroundColor="@color/md_theme_surface"
+            app:cardCornerRadius="@dimen/_8sdp"
+            app:cardElevation="@dimen/_6sdp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@id/support_card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_12sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Image Gallery"
+                        android:textColor="@color/md_theme_onSurface"
+                        android:textSize="@dimen/_16ssp"
+                        android:textStyle="bold"
+                        android:drawablePadding="@dimen/_8sdp"
+                        android:gravity="center_vertical"
+                        android:drawableTint="@color/md_theme_onSurface"
+                        app:drawableStartCompat="@drawable/ic_images" />
+
+                    <TextView
+                        android:id="@+id/view_all_images_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="@dimen/_4sdp"
+                        android:text="View All"
+                        android:clickable="true"
+                        android:textColor="@color/md_theme_primary"
+                        android:textSize="@dimen/_12ssp" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/images_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_120sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:orientation="horizontal"
+                    tools:listitem="@layout/image_item_layout"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        &lt;!&ndash; Videos Section &ndash;&gt;
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/videos_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            app:cardBackgroundColor="@color/md_theme_surface"
+            app:cardCornerRadius="@dimen/_8sdp"
+            app:cardElevation="@dimen/_6sdp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@id/image_gallery_card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_12sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Video Library"
+                        android:textColor="@color/md_theme_onSurface"
+                        android:textSize="@dimen/_16ssp"
+                        android:textStyle="bold"
+                        android:drawablePadding="@dimen/_8sdp"
+                        android:drawableTint="@color/md_theme_onSurface"
+                        android:gravity="center_vertical"
+                        app:drawableStartCompat="@drawable/ic_videos" />
+
+                    <TextView
+                        android:id="@+id/view_all_videos_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="@dimen/_4sdp"
+                        android:text="View All"
+                        android:clickable="true"
+                        android:textColor="@color/md_theme_primary"
+                        android:textSize="@dimen/_12ssp" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/videos_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_140sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:orientation="horizontal" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>-->
+
+        <!-- Social Media Section -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/social_media_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            app:cardBackgroundColor="@color/md_theme_surface"
+            app:cardCornerRadius="@dimen/_8sdp"
+            app:cardElevation="@dimen/_6sdp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@id/support_card">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Social Media"
+                    android:textColor="@color/md_theme_onSurface"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold"
+                    android:padding="@dimen/_12sdp"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:gravity="center_vertical"
+                    app:drawableStartCompat="@drawable/ic_social"
+                    app:drawableTint="@color/md_theme_onSurface"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_12sdp"
+                    app:layout_constraintTop_toBottomOf="@id/tv">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/facebook"
+                        android:layout_width="@dimen/_48sdp"
+                        android:layout_height="@dimen/_48sdp"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Facebook"
+                        android:src="@drawable/facebook" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/instagram"
+                        android:layout_width="@dimen/_48sdp"
+                        android:layout_height="@dimen/_48sdp"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Instagram"
+                        android:src="@drawable/instagram" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/twitter"
+                        android:layout_width="@dimen/_48sdp"
+                        android:layout_height="@dimen/_48sdp"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Twitter"
+                        android:src="@drawable/twitter" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="@dimen/_4sdp">
+
+            <include
+                layout="@layout/no_internet_layout"
+                android:visibility="gone" />
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

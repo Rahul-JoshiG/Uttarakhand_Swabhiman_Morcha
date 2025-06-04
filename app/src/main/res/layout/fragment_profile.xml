@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.profile.ProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp">
+
+        <!-- Personal Information Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/personal_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="@dimen/_4sdp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!-- User Name -->
+                <TextView
+                    android:id="@+id/tv_user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:gravity="center_horizontal"
+                    android:text="Guest User"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold" />
+
+                <!-- User Email -->
+                <TextView
+                    android:id="@+id/tv_user_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:gravity="center_horizontal"
+                    android:text="N/A"
+                    android:textSize="@dimen/_12ssp" />
+
+                <!-- Approval Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/approval"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_12sdp"
+                    android:enabled="true"
+                    android:text="Guest"
+                    android:textAllCaps="false"
+                    android:textColor="@color/md_theme_primary"
+                    app:cornerRadius="@dimen/_10sdp"
+                    app:strokeColor="@color/md_theme_primary" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Details Information Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/details_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="@dimen/_4sdp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@id/personal_card"
+            app:strokeColor="@color/md_theme_surfaceContainer"
+            app:strokeWidth="1dp">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alignmentMode="alignBounds"
+                android:columnCount="2"
+                android:useDefaultMargins="true">
+
+                <!-- District Label -->
+                <TextView
+                    android:id="@+id/tv_district_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnSpan="1"
+                    android:layout_columnWeight="1"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:drawablePadding="@dimen/_6sdp"
+                    android:padding="@dimen/_8sdp"
+                    android:text="District"
+                    android:textColor="@color/md_theme_onSurface"
+                    android:textSize="@dimen/_11ssp"
+                    android:textStyle="bold"
+                    app:drawableStartCompat="@drawable/ic_district"
+                    app:drawableTint="@color/md_theme_onSurfaceVariant" />
+
+                <!-- District Value -->
+                <TextView
+                    android:id="@+id/tv_district"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnSpan="1"
+                    android:layout_columnWeight="1"
+                    android:gravity="end"
+                    android:padding="@dimen/_8sdp"
+                    android:text="N/A"
+                    android:textSize="@dimen/_11ssp" />
+
+                <!-- Department Label -->
+                <TextView
+                    android:id="@+id/tv_user_department_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnSpan="1"
+                    android:layout_columnWeight="1"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:drawablePadding="@dimen/_6sdp"
+                    android:padding="@dimen/_8sdp"
+                    android:text="Tehsil"
+                    android:textColor="@color/md_theme_onSurface"
+                    android:textSize="@dimen/_11ssp"
+                    android:textStyle="bold"
+                    app:drawableStartCompat="@drawable/ic_tehsil"
+                    app:drawableTint="@color/md_theme_onSurfaceVariant" />
+
+                <!-- Department Value -->
+                <TextView
+                    android:id="@+id/tv_tehsil"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnSpan="1"
+                    android:layout_columnWeight="1"
+                    android:gravity="end"
+                    android:padding="@dimen/_8sdp"
+                    android:text="N/A"
+                    android:textSize="@dimen/_11ssp" />
+
+                <!-- Sub Department Label -->
+                <TextView
+                    android:id="@+id/tv_sub_department_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnSpan="1"
+                    android:layout_columnWeight="1"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:drawablePadding="@dimen/_6sdp"
+                    android:padding="@dimen/_8sdp"
+                    android:text="Village"
+                    android:textColor="@color/md_theme_onSurface"
+                    android:textSize="@dimen/_11ssp"
+                    android:textStyle="bold"
+                    app:drawableStartCompat="@drawable/ic_village"
+                    app:drawableTint="@color/md_theme_onSurfaceVariant" />
+
+                <!-- Sub Department Value -->
+                <TextView
+                    android:id="@+id/tv_village"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnSpan="1"
+                    android:layout_columnWeight="1"
+                    android:gravity="end"
+                    android:padding="@dimen/_8sdp"
+                    android:text="N/A"
+                    android:textSize="@dimen/_11ssp" />
+
+            </GridLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Details Information Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cloud_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="@dimen/_4sdp"
+            android:visibility="gone"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@id/details_card"
+            app:strokeColor="@color/md_theme_surfaceContainer"
+            app:strokeWidth="1dp">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alignmentMode="alignBounds"
+                android:columnCount="2"
+                android:useDefaultMargins="true">
+
+                <!-- District Label -->
+                <TextView
+                    android:id="@+id/tv_sync"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnSpan="1"
+                    android:layout_columnWeight="1"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:drawablePadding="@dimen/_6sdp"
+                    android:padding="@dimen/_8sdp"
+                    android:text="Sync with Cloud"
+                    android:textColor="@color/md_theme_onSurface"
+                    android:textSize="@dimen/_11ssp"
+                    android:textStyle="bold"
+                    app:drawableStartCompat="@drawable/ic_upload"
+                    app:drawableTint="@color/md_theme_onSurfaceVariant" />
+
+                <!-- District Value -->
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/sync_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:enabled="true" />
+
+                <TextView
+                    android:id="@+id/tv_sync_message"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnSpan="2"
+                    android:layout_columnWeight="1"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:drawablePadding="@dimen/_6sdp"
+                    android:gravity="center_horizontal"
+                    android:padding="@dimen/_8sdp"
+                    android:text="Secure your complaint into cloud"
+                    android:textColor="@color/md_theme_onSurface"
+                    android:textSize="@dimen/_11ssp"
+                    android:textStyle="italic|bold" />
+            </GridLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/join_member"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/md_theme_primary"
+            android:text="Join Us"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+            android:textColor="@color/md_theme_onPrimary"
+            app:icon="@drawable/ic_join"
+            app:iconGravity="textStart"
+            app:iconSize="@dimen/_22sdp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/md_theme_surface"
+    tools:context=".ui.complaints.write.WriteComplaintFragment">
+
+    <!-- Header with better styling -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/header_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_12sdp"
+        app:cardElevation="@dimen/_4sdp"
+        app:cardBackgroundColor="@color/md_theme_surfaceContainer"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_new_complaint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/new_complaint"
+            android:textColor="@color/md_theme_onSurface"
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:paddingBottom="@dimen/_16sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_card">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:text="Complaint Details"
+                android:textColor="@color/md_theme_onSurface"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold" />
+
+            <!-- Subject Input - Fixed version -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_subject"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:hint="Complaint Title"
+                app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                app:boxCornerRadiusTopStart="@dimen/_8sdp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/complaint_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences"
+                    android:textColor="@color/md_theme_onSurface"
+                    android:drawableStart="@drawable/ic_complaint"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:drawableTint="@color/md_theme_onSurfaceVariant"
+                    android:textSize="@dimen/_14ssp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Description Input - Fixed version -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_description"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:hint="Complaint Description"
+                app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                app:boxCornerRadiusTopStart="@dimen/_8sdp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/complaint_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top|start"
+                    android:inputType="textMultiLine|textCapSentences"
+                    android:minLines="3"
+                    android:maxLines="6"
+                    android:textColor="@color/md_theme_onSurface"
+                    android:drawableStart="@drawable/ic_description"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:drawableTint="@color/md_theme_onSurfaceVariant"
+                    android:scrollbars="vertical"
+                    android:textSize="@dimen/_14ssp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- File Attachment Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:text="File Attachment"
+                android:textColor="@color/md_theme_onSurface"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold" />
+
+            <!-- File Display Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/file_display_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/md_theme_surfaceContainer"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_2sdp">
+
+                <LinearLayout
+                    android:id="@+id/file_text_delete_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_12sdp">
+
+                    <ImageView
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:src="@drawable/ic_attach_file"
+                        app:tint="@color/md_theme_onSurfaceVariant"
+                        android:contentDescription="File attachment icon" />
+
+                    <TextView
+                        android:id="@+id/file_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/_10ssp"
+                        android:maxLines="2"
+                        android:textColor="@color/md_theme_onSurface"
+                        android:ellipsize="middle" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/delete_file"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:contentDescription="Delete file button"
+                        android:minWidth="0dp"
+                        android:padding="@dimen/_8sdp"
+                        android:text="Remove"
+                        android:textSize="@dimen/_10ssp"
+                        app:icon="@drawable/ic_delete"
+                        app:iconSize="@dimen/_16sdp"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- File Upload Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/file_upload"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:strokeColor="@color/md_theme_primary"
+                android:textColor="@color/md_theme_primary"
+                app:iconTint="@color/md_theme_primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_24sdp"
+                android:paddingVertical="@dimen/_12sdp"
+                android:text="Attach File"
+                android:textAllCaps="false"
+                android:textSize="@dimen/_14ssp"
+                app:cornerRadius="@dimen/_8sdp"
+                app:icon="@drawable/ic_attach_file"
+                app:iconGravity="textStart" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/submit_frame">
+
+                <!-- Submit Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/submit_complaint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="@dimen/_16sdp"
+                    android:text="Submit Complaint"
+                    android:backgroundTint="@color/md_theme_primary"
+                    android:textColor="@color/md_theme_onPrimary"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold"
+                    app:cornerRadius="@dimen/_12sdp" />
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progress_bar"
+                    android:indeterminate="true"
+                    android:indeterminateTint="@color/md_theme_onPrimary"
+                    android:layout_gravity="center"
+                    android:visibility="gone"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+    </ScrollView>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="@dimen/_4sdp">
+
+        <include
+            layout="@layout/no_internet_layout"
+            android:visibility="gone" />
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

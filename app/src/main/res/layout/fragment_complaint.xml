@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.complaints.show.ComplaintFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Statistics Section -->
+        <TextView
+            android:id="@+id/total_complaints"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_4sdp"
+            android:drawablePadding="@dimen/_4sdp"
+            android:padding="@dimen/_8sdp"
+            android:text="Total: 0"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_list"
+            app:drawableTint="@color/md_theme_onSurface"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <!-- Complaints List -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/my_complaints_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/_8sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/total_complaints" />
+
+        <!-- Empty State -->
+        <LinearLayout
+            android:id="@+id/empty_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/my_complaints_recycler_view"
+            app:layout_constraintEnd_toEndOf="@+id/my_complaints_recycler_view"
+            app:layout_constraintStart_toStartOf="@+id/my_complaints_recycler_view"
+            app:layout_constraintTop_toTopOf="@+id/my_complaints_recycler_view">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/no_data_found_image"
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="@dimen/_120sdp"
+                android:contentDescription="no complaints found"
+                android:scaleType="centerCrop"
+                android:src="@drawable/not_found" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="No Complaints Found"
+                android:textColor="@color/md_theme_onSurfaceVariant"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="Try adjusting your filters or add a new complaint"
+                android:textColor="@color/md_theme_onSurfaceVariant"
+                android:textSize="@dimen/_11ssp" />
+
+        </LinearLayout>
+
+        <!-- Floating Action Button -->
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/add_new_complaint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_20sdp"
+            android:backgroundTint="@color/md_theme_primary"
+            android:contentDescription="add new complaint"
+            android:text="New Complaint"
+            android:textColor="@color/md_theme_onPrimary"
+            app:icon="@drawable/ic_add"
+            app:iconTint="@color/md_theme_onPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Loading State -->
+        <LinearLayout
+            android:id="@+id/loading_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="Loading complaints..."
+                android:textColor="@color/md_theme_onSurfaceVariant"
+                android:textSize="@dimen/_12ssp" />
+
+        </LinearLayout>
+
+        <!-- Network Error Overlay -->
+        <FrameLayout
+            android:id="@+id/error_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="@dimen/_4sdp"
+            android:visibility="gone">
+
+            <include
+                layout="@layout/no_internet_layout"
+                android:visibility="visible" />
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

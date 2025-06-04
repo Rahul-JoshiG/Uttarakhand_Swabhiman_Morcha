@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="profile">Profile</string>
+    <string name="log_out">Log Out</string>
+    <string name="new_complaint">New Complaint</string>
+</resources>

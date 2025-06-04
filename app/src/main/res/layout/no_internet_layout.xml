@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/no_internet_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_surface"
+    android:clickable="true"
+    android:elevation="100dp"
+    android:focusable="true"
+    android:padding="@dimen/_24sdp"
+    android:visibility="gone">
+
+    <!-- Content Container for better organization -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contentContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_32sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- No Internet Icon with improved styling -->
+        <ImageView
+            android:id="@+id/ivNoInternet"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:alpha="0.8"
+            android:contentDescription="No internet"
+            android:src="@drawable/ic_no_internet"
+            app:layout_constraintBottom_toTopOf="@+id/tvNoInternet"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:tint="@color/md_theme_onSurface" />
+
+        <!-- Main Title with improved typography -->
+        <TextView
+            android:id="@+id/tvNoInternet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:letterSpacing="0.02"
+            android:text="No Internet Connection"
+            android:textAlignment="center"
+            android:textColor="@color/md_theme_onSurface"
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tvNoInternetDesc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivNoInternet" />
+
+        <!-- Description with improved readability -->
+        <TextView
+            android:id="@+id/tvNoInternetDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:alpha="0.87"
+            android:lineSpacingExtra="@dimen/_2sdp"
+            android:text="Please check your internet connection and try again"
+            android:textAlignment="center"
+            android:textColor="@color/md_theme_onSurfaceVariant"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintBottom_toTopOf="@+id/btnRetry"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvNoInternet" />
+
+        <!-- Retry Button with modern Material Design -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRetry"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_marginTop="@dimen/_32sdp"
+            android:backgroundTint="@color/md_theme_primary"
+            android:letterSpacing="0.02"
+            android:minWidth="@dimen/_120sdp"
+            android:paddingHorizontal="@dimen/_24sdp"
+            android:text="Retry"
+            android:textColor="@color/md_theme_onPrimary"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/_24sdp"
+            app:elevation="@dimen/_4sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvNoInternetDesc"
+            app:rippleColor="@color/md_theme_primaryContainer"
+            app:strokeWidth="0dp" />
+
+        <!-- Optional: Loading indicator for retry action -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:elevation="@dimen/_4sdp"
+            android:indeterminateTint="@color/md_theme_primary"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/btnRetry"
+            app:layout_constraintEnd_toEndOf="@+id/btnRetry"
+            app:layout_constraintStart_toStartOf="@+id/btnRetry"
+            app:layout_constraintTop_toTopOf="@+id/btnRetry" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

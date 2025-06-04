@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.rahuljoshi.uttarakhandswabhimanmorcha.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_complaintFragment"
+            app:destination="@id/complaintFragment" />
+
+        <argument android:name="user"
+            app:argType="com.rahuljoshi.uttarakhandswabhimanmorcha.model.data.User"
+            app:nullable="true"/>
+
+        <action
+            android:id="@+id/action_homeFragment_to_newComplaintFragment"
+            app:destination="@id/newComplaintFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_registerActivity"
+            app:destination="@id/registerActivity" />
+        <action
+            android:id="@+id/action_homeFragment_to_writeComplaintFragment"
+            app:destination="@id/writeComplaintFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.rahuljoshi.uttarakhandswabhimanmorcha.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_registerActivity"
+            app:destination="@id/registerActivity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/complaintFragment"
+        android:name="com.rahuljoshi.uttarakhandswabhimanmorcha.ui.complaints.show.ComplaintFragment"
+        android:label="fragment_complaint"
+        tools:layout="@layout/fragment_complaint" >
+        <action
+            android:id="@+id/action_complaintFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+
+        <argument android:name="user"
+            app:argType="com.rahuljoshi.uttarakhandswabhimanmorcha.model.data.User"
+            app:nullable="true"/>
+
+        <action
+            android:id="@+id/action_complaintFragment_to_newComplaintFragment"
+            app:destination="@id/newComplaintFragment" />
+        <action
+            android:id="@+id/action_complaintFragment_to_writeComplaintFragment"
+            app:destination="@id/writeComplaintFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/newComplaintFragment"
+        android:name="com.rahuljoshi.uttarakhandswabhimanmorcha.ui.complaints.write.NewComplaintFragment"
+        android:label="fragment_new_complaint"
+        tools:layout="@layout/fragment_new_complaint" >
+        <action
+            android:id="@+id/action_newComplaintFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+
+        <argument android:name="user"
+            app:argType="com.rahuljoshi.uttarakhandswabhimanmorcha.model.data.User"
+            app:nullable="true"/>
+
+        <action
+            android:id="@+id/action_newComplaintFragment_to_complaintFragment"
+            app:destination="@id/complaintFragment" />
+    </fragment>
+
+    <activity
+        android:id="@+id/registerActivity"
+        android:name="com.rahuljoshi.uttarakhandswabhimanmorcha.ui.auth.RegisterActivity"
+        android:label="activity_register"
+        tools:layout="@layout/activity_register" />
+
+    <fragment
+        android:id="@+id/writeComplaintFragment"
+        android:name="com.rahuljoshi.uttarakhandswabhimanmorcha.ui.complaints.write.WriteComplaintFragment"
+        android:label="fragment_write_complaint"
+        tools:layout="@layout/fragment_write_complaint" >
+
+        <argument android:name="user"
+            app:argType="com.rahuljoshi.uttarakhandswabhimanmorcha.model.data.User"
+            app:nullable="true"/>
+
+        <action
+            android:id="@+id/action_writeComplaintFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>
