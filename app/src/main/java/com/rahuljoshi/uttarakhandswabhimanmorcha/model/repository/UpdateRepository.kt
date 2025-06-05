@@ -3,6 +3,8 @@ package com.rahuljoshi.uttarakhandswabhimanmorcha.model.repository
 import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
 import com.rahuljoshi.uttarakhandswabhimanmorcha.model.data.UpdateInfo
+import com.rahuljoshi.uttarakhandswabhimanmorcha.utils.Constant
+import com.rahuljoshi.uttarakhandswabhimanmorcha.utils.ShardPref
 import com.rahuljoshi.uttarakhandswabhimanmorcha.wrapper.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
@@ -28,6 +30,14 @@ class UpdateRepository @Inject constructor(
                 downloadUrl = doc.getString("downloadUrl") ?: "",
                 forceUpdate = doc.getBoolean("forceUpdate") ?: true
             )
+
+            // Store download URL in SharedPreferences
+            updateInfo.downloadUrl.let { url ->
+                if (url.isNotEmpty()) {
+                    ShardPref.setDownloadLink(Constant.DOWNLOAD_LINK, url)
+                    Log.d(TAG, "Download URL stored in SharedPreferences: $url")
+                }
+            }
 
             Resource.Success(updateInfo)
         } catch (e: Exception) {

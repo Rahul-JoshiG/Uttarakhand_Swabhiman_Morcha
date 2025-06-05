@@ -2,6 +2,7 @@
 agp = "8.10.1"
 androidMail = "1.6.7"
 circleimageview = "3.1.0"
+coil = "2.5.0"
 firebaseBom = "33.14.0"
 hiltAndroid = "2.52"
 hiltAndroidCompiler = "2.52"
@@ -42,6 +43,7 @@ googleGmsGoogleServices = "4.4.2"
 annotationsApi = "6.0.53"
 preference = "1.2.1"
 uiTextAndroid = "1.8.2"
+zxingAndroidEmbedded = "4.3.0"
 
 
 [libraries]
@@ -51,6 +53,7 @@ androidx-navigation-safe-args-gradle-plugin = { module = "androidx.navigation:na
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 circleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "circleimageview" }
+coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 firebase-auth = { module = "com.google.firebase:firebase-auth" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
@@ -88,6 +91,7 @@ play-services-gcm = { module = "com.google.android.gms:play-services-gcm", versi
 annotations-api = { module = "org.apache.tomcat:annotations-api", version.ref = "annotationsApi" }
 androidx-preference = { group = "androidx.preference", name = "preference", version.ref = "preference" }
 androidx-ui-text-android = { group = "androidx.compose.ui", name = "ui-text-android", version.ref = "uiTextAndroid" }
+zxing-android-embedded = { module = "com.journeyapps:zxing-android-embedded", version.ref = "zxingAndroidEmbedded" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

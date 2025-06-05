@@ -104,4 +104,14 @@ object ShardPref {
         return mSharedPreferences.getString(key, "") ?: ""
     }
 
+
+    fun setDownloadLink(key: String, value: String) {
+        Log.d(TAG, "setDownloadLink: in $TAG for $key and $value")
+        mSharedPreferences.edit() { putString(key, value) }
+    }
+
+    fun getDownloadLink(key: String): String {
+        Log.d(TAG, "getDownloadLink: for $key in $TAG")
+        return mSharedPreferences.getString(key, "") ?: ""
+    }
 }

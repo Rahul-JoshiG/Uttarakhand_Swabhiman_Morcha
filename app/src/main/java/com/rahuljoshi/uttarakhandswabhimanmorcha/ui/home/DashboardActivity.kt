@@ -48,8 +48,6 @@ class DashboardActivity : AppCompatActivity() {
     private val mAuthViewModel by viewModels<AuthViewModel>()
     private val mUpdateViewModel by viewModels<UpdateViewModel>()
 
-    private var isToasting = false
-
     private lateinit var progressDialog: AlertDialog
     private var progressDownloadDialog: AlertDialog? = null
 
@@ -221,6 +219,11 @@ class DashboardActivity : AppCompatActivity() {
 
                 R.id.nav_about_us -> {
                     navController.navigate(R.id.aboutUsFragment)
+                    true
+                }
+
+                R.id.nav_share -> {
+                    navController.navigate(R.id.shareFragment)
                     true
                 }
 

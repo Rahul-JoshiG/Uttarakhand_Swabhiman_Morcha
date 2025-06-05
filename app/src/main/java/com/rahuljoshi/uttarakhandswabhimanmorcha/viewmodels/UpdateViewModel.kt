@@ -33,9 +33,8 @@ class UpdateViewModel @Inject constructor(
     private val _downloadProgress = MutableLiveData<Int>()
     val downloadProgress: LiveData<Int> = _downloadProgress
 
-    val currentVersionCode = context.packageManager
-        .getPackageInfo(context.packageName, 0).versionCode
-
+    val currentVersionName = context.packageManager
+        .getPackageInfo(context.packageName, 0).versionName
 
     fun checkForUpdate() {
         viewModelScope.launch {
@@ -43,7 +42,7 @@ class UpdateViewModel @Inject constructor(
             when(result){
                 is Resource.Success ->{
                     val latest = result.data
-                    if (latest != null && latest.versionCode > currentVersionCode) {
+                    if (latest != null && latest.versionName != currentVersionName) {
                         _updateInfo.value = latest
                     }
                 }

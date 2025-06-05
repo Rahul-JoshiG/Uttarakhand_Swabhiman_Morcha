@@ -35,6 +35,9 @@
         <action
             android:id="@+id/action_homeFragment_to_aboutUsFragment"
             app:destination="@id/aboutUsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_shareFragment"
+            app:destination="@id/shareFragment" />
     </fragment>
 
     <fragment
@@ -114,4 +117,13 @@
         android:name="com.rahuljoshi.uttarakhandswabhimanmorcha.ui.aboutus.AboutUsFragment"
         android:label="fragment_about_us"
         tools:layout="@layout/fragment_about_us" />
+    <fragment
+        android:id="@+id/shareFragment"
+        android:name="com.rahuljoshi.uttarakhandswabhimanmorcha.ui.share.ShareFragment"
+        android:label="fragment_share"
+        tools:layout="@layout/fragment_share" >
+        <action
+            android:id="@+id/action_shareFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

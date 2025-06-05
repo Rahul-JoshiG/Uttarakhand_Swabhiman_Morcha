@@ -10,6 +10,7 @@ object Constant {
     const val DEVICE_ID = "device_id"
     const val IP_ADDRESS = "id_address"
     const val IS_SYNC = "is_sync"
+    const val DOWNLOAD_LINK = "download_lin"
 
     const val POLICE = "tel:100"
     const val AMBULANCE = "tel:108"
