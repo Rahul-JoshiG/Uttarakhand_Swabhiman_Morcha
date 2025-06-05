@@ -42,6 +42,7 @@ playServicesGcm = "17.0.0"
 googleGmsGoogleServices = "4.4.2"
 annotationsApi = "6.0.53"
 preference = "1.2.1"
+uiTextAndroid = "1.8.2"
 
 
 [libraries]
@@ -87,6 +88,7 @@ play-services-auth = { module = "com.google.android.gms:play-services-auth", ver
 play-services-gcm = { module = "com.google.android.gms:play-services-gcm", version.ref = "playServicesGcm" }
 annotations-api = { module = "org.apache.tomcat:annotations-api", version.ref = "annotationsApi" }
 androidx-preference = { group = "androidx.preference", name = "preference", version.ref = "preference" }
+androidx-ui-text-android = { group = "androidx.compose.ui", name = "ui-text-android", version.ref = "uiTextAndroid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

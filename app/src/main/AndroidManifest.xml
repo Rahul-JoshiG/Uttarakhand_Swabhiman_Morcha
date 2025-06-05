@@ -30,8 +30,6 @@
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.CAMERA" />
 
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-
     <queries>
         <!-- If querying specific apps by package name -->
         <package android:name="com.facebook.katana" /> <!-- Main Facebook app -->

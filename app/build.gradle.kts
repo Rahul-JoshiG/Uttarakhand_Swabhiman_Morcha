@@ -83,6 +83,7 @@ dependencies {
     implementation(libs.firebase.firestore)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.preference)
+    implementation(libs.androidx.ui.text.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

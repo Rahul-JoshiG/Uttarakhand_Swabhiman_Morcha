@@ -219,6 +219,11 @@ class DashboardActivity : AppCompatActivity() {
                     true
                 }
 
+                R.id.nav_about_us -> {
+                    navController.navigate(R.id.aboutUsFragment)
+                    true
+                }
+
                 else -> false
             }
             if (handled) {

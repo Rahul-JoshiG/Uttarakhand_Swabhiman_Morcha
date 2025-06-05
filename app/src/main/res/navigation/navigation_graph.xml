@@ -32,6 +32,9 @@
         <action
             android:id="@+id/action_homeFragment_to_writeComplaintFragment"
             app:destination="@id/writeComplaintFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_aboutUsFragment"
+            app:destination="@id/aboutUsFragment" />
     </fragment>
 
     <fragment
@@ -106,4 +109,9 @@
             android:id="@+id/action_writeComplaintFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.rahuljoshi.uttarakhandswabhimanmorcha.ui.aboutus.AboutUsFragment"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us" />
 </navigation>

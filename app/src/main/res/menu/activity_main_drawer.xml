@@ -8,6 +8,10 @@
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_person"/>
 
+        <item android:title="About Us"
+            android:id="@+id/nav_about_us"
+            android:icon="@drawable/ic_about_us"/>
+
         <item android:title="@string/log_out"
             android:id="@+id/log_out"
             android:icon="@drawable/ic_log_out"/>

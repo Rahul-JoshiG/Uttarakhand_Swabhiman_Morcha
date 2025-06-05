@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/about_us"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_surface"
+    android:fillViewport="true"
+    tools:context=".ui.aboutus.AboutUsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/_16sdp">
+
+        <!-- App Logo and Name Section -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_16sdp"
+            app:cardBackgroundColor="@color/md_theme_surfaceContainerLow"
+            app:cardCornerRadius="@dimen/_12sdp"
+            app:cardElevation="@dimen/_4sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/_24sdp">
+
+                <!-- App Icon -->
+                <ImageView
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_marginBottom="@dimen/_12sdp"
+                    android:contentDescription="App Icon"
+                    android:src="@drawable/ums_logo" />
+
+                <!-- App Name -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/app_name"
+                    android:textColor="@color/md_theme_onSurface"
+                    android:textSize="@dimen/_20ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- About Section
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_16sdp"
+            app:cardBackgroundColor="@color/md_theme_surfaceVariant"
+            app:cardCornerRadius="@dimen/_12sdp"
+            app:cardElevation="@dimen/_2sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_16sdp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:lineSpacingExtra="@dimen/_2sdp"
+                    android:text="@string/about_us"
+                    android:textColor="@color/md_theme_onSurfaceVariant"
+                    android:textSize="@dimen/_14ssp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_12sdp"
+                    android:text="📖 हमारे बारे में"
+                    android:textColor="@color/md_theme_onSurfaceVariant"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        &lt;!&ndash; goal Section &ndash;&gt;
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_16sdp"
+            app:cardBackgroundColor="@color/md_theme_surfaceVariant"
+            app:cardCornerRadius="@dimen/_12sdp"
+            app:cardElevation="@dimen/_2sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_16sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_12sdp"
+                    android:text="🎯 हमारा उद्देश्य:"
+                    android:textColor="@color/md_theme_onSurfaceVariant"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:lineSpacingExtra="@dimen/_2sdp"
+                    android:text="@string/our_goal"
+                    android:textColor="@color/md_theme_onSurfaceVariant"
+                    android:textSize="@dimen/_14ssp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        &lt;!&ndash; why we Section &ndash;&gt;
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_16sdp"
+            app:cardBackgroundColor="@color/md_theme_surfaceVariant"
+            app:cardCornerRadius="@dimen/_12sdp"
+            app:cardElevation="@dimen/_2sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_16sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_12sdp"
+                    android:text="🌄 उत्तराखंड स्वाभिमान मोर्चा ही क्यों :"
+                    android:textColor="@color/md_theme_onSurfaceVariant"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:lineSpacingExtra="@dimen/_2sdp"
+                    android:text="@string/why_us"
+                    android:textColor="@color/md_theme_onSurfaceVariant"
+                    android:textSize="@dimen/_14ssp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+        &lt;!&ndash; why we Section &ndash;&gt;
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_16sdp"
+            app:cardBackgroundColor="@color/md_theme_surfaceVariant"
+            app:cardCornerRadius="@dimen/_12sdp"
+            app:cardElevation="@dimen/_2sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_16sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_12sdp"
+                    android:text="🏞 हम क्यों अलग हैं?"
+                    android:textColor="@color/md_theme_onSurfaceVariant"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:lineSpacingExtra="@dimen/_2sdp"
+                    android:text="@string/why_we_are_different"
+                    android:textColor="@color/md_theme_onSurfaceVariant"
+                    android:textSize="@dimen/_14ssp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        &lt;!&ndash; why we Section &ndash;&gt;
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_16sdp"
+            app:cardBackgroundColor="@color/md_theme_surfaceVariant"
+            app:cardCornerRadius="@dimen/_12sdp"
+            app:cardElevation="@dimen/_2sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_16sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_12sdp"
+                    android:text="हमारा विश्वास है:"
+                    android:textColor="@color/md_theme_onSurfaceVariant"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:lineSpacingExtra="@dimen/_2sdp"
+                    android:text="@string/our_belief"
+                    android:textColor="@color/md_theme_onSurfaceVariant"
+                    android:textSize="@dimen/_14ssp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        &lt;!&ndash; Features Section &ndash;&gt;
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_16sdp"
+            app:cardBackgroundColor="@color/md_theme_surfaceVariant"
+            app:cardCornerRadius="@dimen/_12sdp"
+            app:cardElevation="@dimen/_2sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_16sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_12sdp"
+                    android:text="Key Features"
+                    android:textColor="@color/md_theme_onSurfaceVariant"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold" />
+
+                &lt;!&ndash; Feature 1 &ndash;&gt;
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:contentDescription="Save Icon"
+                        android:src="@android:drawable/ic_menu_save"
+                        android:tint="@color/md_theme_primary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Local &amp; Cloud Storage"
+                        android:textColor="@color/md_theme_onSurfaceVariant"
+                        android:textSize="@dimen/_14ssp" />
+
+                </LinearLayout>
+
+                &lt;!&ndash; Feature 2 &ndash;&gt;
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:contentDescription="Manage Icon"
+                        android:src="@android:drawable/ic_menu_manage"
+                        android:tint="@color/md_theme_primary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Easy Complaint Management"
+                        android:textColor="@color/md_theme_onSurfaceVariant"
+                        android:textSize="@dimen/_14ssp" />
+
+                </LinearLayout>
+
+                &lt;!&ndash; Feature 3 &ndash;&gt;
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:contentDescription="Sync Icon"
+                        android:src="@android:drawable/ic_menu_rotate"
+                        android:tint="@color/md_theme_primary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Real-time Synchronization"
+                        android:textColor="@color/md_theme_onSurfaceVariant"
+                        android:textSize="@dimen/_14ssp" />
+
+                </LinearLayout>
+
+                &lt;!&ndash; Feature 4 &ndash;&gt;
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:contentDescription="Track Icon"
+                        android:src="@android:drawable/ic_menu_info_details"
+                        android:tint="@color/md_theme_primary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Detailed Complaint Tracking"
+                        android:textColor="@color/md_theme_onSurfaceVariant"
+                        android:textSize="@dimen/_14ssp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        &lt;!&ndash; Developer Section &ndash;&gt;
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_16sdp"
+            app:cardBackgroundColor="@color/md_theme_surfaceVariant"
+            app:cardCornerRadius="@dimen/_12sdp"
+            app:cardElevation="@dimen/_2sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_16sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_12sdp"
+                    android:text="Developer Info"
+                    android:textColor="@color/md_theme_onSurfaceVariant"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:text="Developed by: Your Company Name"
+                    android:textColor="@color/md_theme_onSurfaceVariant"
+                    android:textSize="@dimen/_14ssp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:text="Email: support@yourcompany.com"
+                    android:textColor="@color/md_theme_onSurfaceVariant"
+                    android:textSize="@dimen/_14ssp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Website: www.yourcompany.com"
+                    android:textColor="@color/md_theme_onSurfaceVariant"
+                    android:textSize="@dimen/_14ssp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        &lt;!&ndash; Action Buttons &ndash;&gt;
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_rate_app"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:text="Rate App"
+                android:textColor="@color/md_theme_primary"
+                app:cornerRadius="@dimen/_20sdp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_share_app"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:background="@color/md_theme_primary"
+                android:text="Share App"
+                android:textColor="@color/md_theme_onPrimary"
+                app:cornerRadius="@dimen/_20sdp" />
+
+        </LinearLayout>-->
+
+    </LinearLayout>
+
+</ScrollView>
