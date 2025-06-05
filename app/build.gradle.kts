@@ -9,7 +9,6 @@ plugins {
     id("kotlin-parcelize")
     alias(libs.plugins.google.firebase.crashlytics)
     id("com.google.devtools.ksp")
-
 }
 
 android {
@@ -104,6 +103,7 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.auth)
+    implementation(libs.firebase.crashlytics)
 
     //google drive
     implementation(libs.google.auth.library.oauth2.http) // or latest

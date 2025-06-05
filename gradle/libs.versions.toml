@@ -25,7 +25,6 @@ legacySupportV4 = "1.0.0"
 fragmentKtx = "1.8.7"
 firebaseFirestore = "25.1.4"
 navigationSafeArgsGradlePlugin = "2.9.0"
-firebaseCrashlytics = "19.4.3"
 googleFirebaseCrashlytics = "3.0.3"
 activity = "1.10.1"
 googleApiClient = "2.7.2"
@@ -55,6 +54,7 @@ circleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "circ
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 firebase-auth = { module = "com.google.firebase:firebase-auth" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroidCompiler" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -73,7 +73,6 @@ ssp-android = { module = "com.intuit.ssp:ssp-android", version.ref = "sspAndroid
 androidx-legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacySupportV4" }
 androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragmentKtx" }
 firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
-firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics", version.ref = "firebaseCrashlytics" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 google-api-client = { module = "com.google.api-client:google-api-client", version.ref = "googleApiClient" }
 google-api-client-gson = { module = "com.google.api-client:google-api-client-gson", version.ref = "googleApiClientGson" }
