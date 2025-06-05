@@ -523,7 +523,7 @@
                         android:layout_width="@dimen/_48sdp"
                         android:layout_height="@dimen/_48sdp"
                         android:layout_weight="1"
-                        android:background="?attr/selectableItemBackgroundBorderless"
+                        app:tint="@color/md_theme_onSurface"
                         android:contentDescription="Facebook"
                         android:src="@drawable/facebook" />
 
@@ -532,7 +532,7 @@
                         android:layout_width="@dimen/_48sdp"
                         android:layout_height="@dimen/_48sdp"
                         android:layout_weight="1"
-                        android:background="?attr/selectableItemBackgroundBorderless"
+                        app:tint="@color/md_theme_onSurface"
                         android:contentDescription="Instagram"
                         android:src="@drawable/instagram" />
 
@@ -541,7 +541,7 @@
                         android:layout_width="@dimen/_48sdp"
                         android:layout_height="@dimen/_48sdp"
                         android:layout_weight="1"
-                        android:background="?attr/selectableItemBackgroundBorderless"
+                        app:tint="@color/md_theme_onSurface"
                         android:contentDescription="Twitter"
                         android:src="@drawable/twitter" />
                 </LinearLayout>

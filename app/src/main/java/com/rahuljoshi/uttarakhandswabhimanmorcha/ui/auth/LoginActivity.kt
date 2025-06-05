@@ -96,7 +96,7 @@ class LoginActivity : AppCompatActivity() {
         MaterialAlertDialogBuilder(this@LoginActivity)
             .setTitle("Warning")
             .setMessage(
-                "Complaints made without registration are saved only on your device.\n" +
+                "Complaints made without registration are saved only on your devicel." +
                         "Uninstalling or clearing app data will erase them.\n" +
                         "Please register to securely back up your complaints.\n" +
                         "Thank You."
