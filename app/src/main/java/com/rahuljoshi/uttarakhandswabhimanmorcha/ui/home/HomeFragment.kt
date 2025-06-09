@@ -2,6 +2,7 @@ package com.rahuljoshi.uttarakhandswabhimanmorcha.ui.home
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -18,13 +19,18 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
+import com.rahuljoshi.uttarakhandswabhimanmorcha.R
 import com.rahuljoshi.uttarakhandswabhimanmorcha.databinding.FragmentHomeBinding
+import com.rahuljoshi.uttarakhandswabhimanmorcha.model.data.Section
 import com.rahuljoshi.uttarakhandswabhimanmorcha.model.data.User
+import com.rahuljoshi.uttarakhandswabhimanmorcha.ui.aboutus.SectionAdapter
 import com.rahuljoshi.uttarakhandswabhimanmorcha.ui.auth.AuthViewModel
 import com.rahuljoshi.uttarakhandswabhimanmorcha.utils.Constant
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import java.util.Locale
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -67,9 +73,35 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupObservers()
+        setUpRecyclerView()
         setOnClickListener()
         setUpEmergencyNumbers()
         setUpSocialMedia()
+    }
+
+    private fun setUpRecyclerView() {
+        Log.d(TAG, "setUpRecyclerView: in $TAG")
+        val locale = Locale("hi")
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.setLocale(locale)
+        resources.updateConfiguration(config, resources.displayMetrics)
+
+        val recyclerView = binding.recyclerView
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        val sections = listOf(
+            Section(getString(R.string.about_us_title), getString(R.string.about_us)),
+            Section(getString(R.string.our_goal_title), getString(R.string.our_goal)),
+            Section(getString(R.string.why_us_title), getString(R.string.why_us)),
+            Section(
+                getString(R.string.why_we_are_different_title),
+                getString(R.string.why_we_are_different)
+            ),
+            Section(getString(R.string.our_belief_title), getString(R.string.our_belief))
+        )
+
+        recyclerView.adapter = SectionAdapter(sections)
     }
 
     private fun setupObservers() {
