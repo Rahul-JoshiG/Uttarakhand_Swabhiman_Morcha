@@ -30,7 +30,11 @@ import com.rahuljoshi.uttarakhandswabhimanmorcha.helper.NoInternetHandler
 import com.rahuljoshi.uttarakhandswabhimanmorcha.model.data.DistrictAndTehsil
 import com.rahuljoshi.uttarakhandswabhimanmorcha.model.data.User
 import com.rahuljoshi.uttarakhandswabhimanmorcha.ui.home.DashboardActivity
+import com.rahuljoshi.uttarakhandswabhimanmorcha.utils.Constant
+import com.rahuljoshi.uttarakhandswabhimanmorcha.utils.DeviceInternet
+import com.rahuljoshi.uttarakhandswabhimanmorcha.utils.ShardPref
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class RegisterActivity : AppCompatActivity() {
@@ -250,12 +254,34 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
 
-        mViewModel.registerState.observe(this) { success ->
-            if (!success) {
-                showSnackbar("Email already occupied. Please try with another email.")
+        mViewModel.registrationMessage.observe(this) { message ->
+            showSnackbar(message)
+        }
+
+        mViewModel.registerState.observe(this) { isRegistered ->
+            if (isRegistered) {
+                lifecycleScope.launch {
+                    try {
+                        ShardPref.setIsAnonymous(false)
+                        ShardPref.setSkipButtonClicked(false)
+                        ShardPref.setIsUserLoggedIn(true)
+                        ShardPref.setDeviceId(
+                            Constant.DEVICE_ID,
+                            DeviceInternet.getDeviceId(this@RegisterActivity)
+                        )
+                        ShardPref.setIpId(
+                            Constant.IP_ADDRESS,
+                            DeviceInternet.getDeviceIpAddress(this@RegisterActivity) ?: ""
+                        )
+                        navigateToActivity(DashboardActivity::class.java)
+                        finish()
+                    } catch (e: Exception) {
+                        Log.e(TAG, "Failed to save user preferences", e)
+                        //showSnackbar("Registration successful")
+                    }
+                }
             } else {
-                showProgressDialog("Syncing your complaints to cloud...")
-                mViewModel.syncLocalComplaintsToFirestore()
+                showSnackbar("Registration failed. Please check your internet connection and try again.")
             }
         }
 

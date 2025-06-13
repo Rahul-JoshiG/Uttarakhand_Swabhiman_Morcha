@@ -78,7 +78,6 @@
             android:exported="false"
             android:theme="@style/UttarakhandSwabhimanMorcha"/>
 
-
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"

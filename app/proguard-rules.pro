@@ -125,3 +125,12 @@
 # Support for JSON parsing
 -keepattributes Signature
 -keepattributes *Annotation*
+
+-keep class javax.mail.** { *; }
+-keep class com.sun.mail.** { *; }
+-keep class jakarta.mail.** { *; }
+-keep class org.apache.harmony.security.** { *; } # If using certain older Android mail libs
+-keepattributes Signature
+-dontwarn javax.mail.**
+-dontwarn com.sun.mail.**
+-dontwarn jakarta.mail.**

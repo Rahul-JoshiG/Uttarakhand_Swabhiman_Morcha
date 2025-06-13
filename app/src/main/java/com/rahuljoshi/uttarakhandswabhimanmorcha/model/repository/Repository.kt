@@ -30,7 +30,7 @@ import javax.inject.Inject
 
 class Repository @Inject constructor(
     private val firestore: FirebaseFirestore,
-    private val auth: FirebaseAuth,
+    internal val auth: FirebaseAuth,
     private val driveService: Drive
 ) {
 
@@ -125,24 +125,24 @@ class Repository @Inject constructor(
             Log.d(TAG, "createUserUsingEmailAndPassword: ${result.user}")
             Resource.Success(true)
         } catch (e: Exception) {
-            Log.d(TAG, "createUserUsingEmailAndPassword: ${e.localizedMessage}")
-            Resource.Error(e.localizedMessage ?: "Failed to create user") // Return an error
+            Log.e(TAG, "createUserUsingEmailAndPassword: ${e.localizedMessage}")
+            Resource.Error(e.localizedMessage ?: "Failed to create user")
         }
     }
 
 
     suspend fun storeUserInFirestore(user: User): Resource<Boolean> = withContext(Dispatchers.IO) {
-        Log.d(TAG, "storeUserInFirestore: uploading the user in repository")
         return@withContext try {
-            val userDocumentId = currentUserId()
-            val collectionRef =
-                firestore.collection(Constant.USERS).document(userDocumentId.toString())
-            collectionRef.set(user).await()
-
+            if (user.uid.isNullOrBlank()) {
+                Log.e(TAG, "storeUserInFirestore: User ID is null or blank")
+                return@withContext Resource.Error("Invalid user ID")
+            }
+            val userRef = firestore.collection(Constant.USERS).document(user.uid)
+            userRef.set(user).await()
             Resource.Success(true)
         } catch (e: Exception) {
-            Log.d(TAG, "uploadTheRegisteredUser: error to upload user")
-            Resource.Error(e.localizedMessage ?: "Failed to upload user")
+            Log.e(TAG, "storeUserInFirestore: Failed to store user - ${e.message}")
+            Resource.Error(e.localizedMessage ?: "Failed to store user data")
         }
     }
 
@@ -422,7 +422,7 @@ class Repository @Inject constructor(
         val senderMail = PrivateData.SENDER_MAIL
         val receiverMail = PrivateData.RECEIVER_USER_MAIL
         try {
-            Log.d(TAG, "sendComplaintEmail: preparing to send email")
+            Log.d(TAG, "sendJoinMemberEmail: preparing to send email")
 
             val email = GMailSender(senderMail, senderPassword)
 
@@ -446,19 +446,25 @@ class Repository @Inject constructor(
     """.trimIndent()
 
             Log.d(TAG, "sendJoinMemberEmail: Attempting to send email to $receiverMail")
-            email.sendMail(
-                subject = "New Member: ${user.name}",
-                body = body,
-                recipient = receiverMail
-            )
-
-            Log.d(TAG, "sendJoinMemberEmail: Email sent successfully")
+            try {
+                email.sendMail(
+                    subject = "New Member: ${user.name}",
+                    body = body,
+                    recipient = receiverMail
+                )
+                Log.d(TAG, "sendJoinMemberEmail: Email sent successfully")
+            } catch (e: Exception) {
+                Log.e(TAG, "sendJoinMemberEmail: Failed to send email", e)
+                Log.e(TAG, "sendJoinMemberEmail: Error details - ${e.message}")
+                Log.e(TAG, "sendJoinMemberEmail: Stack trace - ${e.stackTraceToString()}")
+                throw e
+            }
 
         } catch (e: Exception) {
-            Log.e(TAG, "sendJoinMemberEmail: Failed to send email", e)
+            Log.e(TAG, "sendJoinMemberEmail: Failed to prepare email", e)
             Log.e(TAG, "sendJoinMemberEmail: Error details - ${e.message}")
             Log.e(TAG, "sendJoinMemberEmail: Stack trace - ${e.stackTraceToString()}")
-            throw e // Rethrow to handle in ViewModel
+            throw e
         }
     }
 

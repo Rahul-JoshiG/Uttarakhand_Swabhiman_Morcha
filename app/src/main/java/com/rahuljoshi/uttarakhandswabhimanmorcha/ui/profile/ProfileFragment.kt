@@ -84,27 +84,26 @@ class ProfileFragment : Fragment() {
     private fun showUserDetails(user: User?) {
         Log.d(TAG, "showUserDetails: user = $user")
 
-        if (user == null) {
-            binding.apply {
+        binding.apply {
+            if (user == null) {
                 tvUserName.text = "Guest User"
                 tvUserEmail.text = "N/A"
                 tvDistrict.text = "N/A"
                 tvTehsil.text = "N/A"
                 tvVillage.text = "N/A"
                 cloudCard.visibility = GONE
+                approval.text = "Guest"
+                joinMember.visibility = VISIBLE
+            } else {
+                tvUserName.text = user.name
+                tvUserEmail.text = user.email
+                tvDistrict.text = user.district
+                tvTehsil.text = user.tehsil
+                tvVillage.text = user.village
+                approval.text = "Member"
+                joinMember.visibility = GONE
+                cloudCard.visibility = VISIBLE
             }
-        }
-
-
-        binding.apply {
-            tvUserName.text = user?.name
-            tvUserEmail.text = user?.email
-            tvDistrict.text = user?.district
-            tvTehsil.text = user?.tehsil
-            tvVillage.text = user?.village
-            approval.text = "Member"
-            joinMember.visibility = GONE
-            cloudCard.visibility = VISIBLE
         }
     }
 

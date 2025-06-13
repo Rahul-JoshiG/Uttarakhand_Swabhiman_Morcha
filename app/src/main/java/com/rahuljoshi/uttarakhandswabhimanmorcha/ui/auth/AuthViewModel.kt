@@ -16,6 +16,7 @@ import com.rahuljoshi.uttarakhandswabhimanmorcha.wrapper.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 import javax.inject.Inject;
 
 @HiltViewModel
@@ -29,6 +30,9 @@ class AuthViewModel @Inject constructor(
 
     private val _status = MutableLiveData<Boolean>()
     val status: LiveData<Boolean> = _status
+
+    private val _registrationMessage = MutableLiveData<String>()
+    val registrationMessage: LiveData<String> = _registrationMessage
 
     fun currentUser(): String? {
         return repository.currentUserId()
@@ -45,44 +49,85 @@ class AuthViewModel @Inject constructor(
 
     private val _registerState = MutableLiveData<Boolean>()
     val registerState: LiveData<Boolean> = _registerState
+
     internal fun createUser(email: String, password: String, user: User) {
         Log.d(TAG, "createUser: create user from view model")
         _status.value = true
+        _registrationMessage.value = "Creating account..."
         viewModelScope.launch {
-            val result = repository.createUserUsingEmailAndPassword(email, password)
-            if (result is Resource.Success) {
-                val uid = currentUser()
-                val updateUser = user.copy(uid = uid)
-                uploadTheUser(updateUser)
-                //refreshToken()
-            } else {
+            try {
+                val result = repository.createUserUsingEmailAndPassword(email, password)
+                if (result is Resource.Success) {
+                    val uid = currentUser()
+                    if (uid != null) {
+                        val updateUser = user.copy(uid = uid)
+                        uploadTheUser(updateUser)
+                    } else {
+                        Log.e(TAG, "createUser: User ID is null after successful registration")
+                        _status.value = false
+                        _registerState.value = false
+                        _registrationMessage.value = "Registration failed. Please try again."
+                    }
+                } else {
+                    Log.e(TAG, "createUser: Registration failed - ${result.message}")
+                    _status.value = false
+                    _registerState.value = false
+                    _registrationMessage.value = "Registration failed. Please try again."
+                }
+            } catch (e: Exception) {
+                Log.e(TAG, "createUser: Exception during registration", e)
                 _status.value = false
                 _registerState.value = false
+                _registrationMessage.value = "Registration failed. Please try again."
             }
         }
     }
 
     private fun uploadTheUser(user: User) {
         _status.value = true
+        _registrationMessage.value = "Saving user details..."
         Log.d(TAG, "uploadTheUser: uploading the user from view model")
         viewModelScope.launch {
-            val response = repository.storeUserInFirestore(user)
-            when (response) {
-                is Resource.Success -> {
-                    repository.sendJoinMemberEmail(user)
-                    _status.value = false
-                    _registerState.value = true // Allow navigation
+            try {
+                val response = repository.storeUserInFirestore(user)
+                when (response) {
+                    is Resource.Success -> {
+                        _registrationMessage.value = "Sending confirmation email..."
+                        try {
+                            repository.sendJoinMemberEmail(user)
+                            _status.value = false
+                            _registerState.value = true
+                            _registrationMessage.value = "Registration successful!"
+                        } catch (e: Exception) {
+                            Log.e(TAG, "uploadTheUser: Failed to send registration email", e)
+                            _status.value = false
+                            _registerState.value = false
+                            _registrationMessage.value = "Failed to send confirmation email. Please try again."
+                        }
+                    }
+                    is Resource.Error -> {
+                        Log.e(TAG, "uploadTheUser: Failed to store user in Firestore - ${response.message}")
+                        try {
+                            repository.auth.currentUser?.delete()?.await()
+                        } catch (e: Exception) {
+                            Log.e(TAG, "uploadTheUser: Failed to clean up Firebase Auth user", e)
+                        }
+                        _status.value = false
+                        _registerState.value = false
+                        _registrationMessage.value = "Failed to save user details. Please try again."
+                    }
+                    else -> {
+                        Log.e(TAG, "uploadTheUser: Unknown response type")
+                        _status.value = false
+                        _registerState.value = false
+                        _registrationMessage.value = "Registration failed. Please try again."
+                    }
                 }
-
-                is Resource.Error -> {  // Handle login errors
-                    _status.value = false
-                    _registerState.value = false
-                }
-
-                else -> {
-                    _status.value = false
-                    _registerState.value = false
-                }
+            } catch (e: Exception) {
+                Log.e(TAG, "uploadTheUser: Exception during user upload", e)
+                _status.value = false
+                _registerState.value = false
+                _registrationMessage.value = "Registration failed. Please try again."
             }
         }
     }
